@@ -1,0 +1,20 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: https://fn.godwit.io
+functions:
+  handle-confirm-email-action:
+    lang: dockerfile
+    handler: .
+    image: harbor.godwit.io/library/confirm-email-handler:${DRONE_TAG}
+    environment:
+      DB_HOST: postgres.apps.svc.cluster.local
+      HASURA_DB: keto_db
+      DB_USERNAME: postgres
+      DB_PASSWORD: 1qaz!QAZ
+      ISSUER: idp.godwit.io
+      CERT_PATH: /app/
+      CERT_FILENAME: godwit.cert.pfx
+      CERT_PASSWORD: P@ssw0rd.123
+      REDIS_PASSWORD: 1qaz!QAZ
+      REDIS_HOST: 'redis-master:6379,redis-slave:6379'
