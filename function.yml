@@ -17,4 +17,4 @@ functions:
       CERT_FILENAME: godwit.cert.pfx
       CERT_PASSWORD: P@ssw0rd.123
       REDIS_PASSWORD: 1qaz!QAZ
-      REDIS_HOST: 'redis-master:6379,redis-slave:6379'
+      REDIS_HOST: 'redis-master.svc.apps:6379,redis-slave.svc.apps:6379'
