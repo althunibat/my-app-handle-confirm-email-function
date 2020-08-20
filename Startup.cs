@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using StackExchange.Redis;
 
 namespace Godwit.HandleConfirmEmail {
@@ -80,8 +81,8 @@ namespace Godwit.HandleConfirmEmail {
                 opt.AllowAnyOrigin();
             });
             app.UseRouting();
-
             app.UseAuthorization();
+            app.UseSerilogRequestLogging();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();

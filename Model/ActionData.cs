@@ -5,5 +5,8 @@ namespace Godwit.HandleConfirmEmail.Model {
         [JsonPropertyName("input")] public ConfirmEmailModel Input { get; set; }
 
         [JsonPropertyName("action")] public Action Action { get; set; }
+
+        [JsonPropertyName("session_variables")]
+        public Session Session { get; set; }
     }
 }
